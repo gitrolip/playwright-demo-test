@@ -1,11 +1,11 @@
 const{test, expect} = require('@playwright/test')
 const{Login} = require('./pageObject/login')
-const{Menu} = require('../tests/pageObject/menu')
-const{Contact}= require('../tests/pageObject/contact')
-const{Signup}= require('../tests/pageObject/signup')
-const{Cart}= require('../tests/pageObject/cart')
-const{Home}= require('../tests/pageObject/home')
-const{ProductDescription}= require('../tests/pageObject/productDescription')
+const{Menu} = require('./pageObject/menu')
+const{Contact}= require('./pageObject/contact')
+const{Signup}= require('./pageObject/signup')
+const{Cart}= require('./pageObject/cart')
+const{Home}= require('./pageObject/home')
+const{ProductDescription}= require('./pageObject/productDescription')
 
 
 let page1
@@ -21,7 +21,7 @@ test("Validate successful signup",async()=>{
     var menu= new Menu(page1);
     var signup = new Signup(page1)
     await menu.clickSignUp();
-    await signup.sendUserName("testrp44@test.com")
+    await signup.sendUserName("testrp41@test.com")
     await signup.sendPassword("12345")
     //expect code to validate popup msg;Code to handle alert before action
     expect(await signup.clickSignupBtnAndReturnMsg()).toEqual('Sign up successful.')
@@ -32,11 +32,11 @@ test("Successful login", async()=>{
     var menu = new Menu(page1)
     var login = new Login(page1)
     await menu.clickLogin()
-    await login.senduserName("testrp44@test.com")
+    await login.senduserName("testrp41@test.com")
     await login.sendPassword("12345")
     await login.clickLoginBtn()
     //expect code to validate login
-    expect(await menu.getUserName()).toContain("Welcome testrp44@test.com")
+    expect(await menu.getUserName()).toContain("Welcome testrp41@test.com")
 })
 
 test("Validate Contact tab", async()=>{
@@ -44,8 +44,8 @@ test("Validate Contact tab", async()=>{
     var contact= new Contact(page1)
     var cart = new Cart(page1)
     await menu.clickContact()
-    await contact.sendContactEmail("testrp44@test.com")
-    await contact.sendContactName("testrp44")
+    await contact.sendContactEmail("testrp41@test.com")
+    await contact.sendContactName("testrp41")
     await contact.sendContactMsg("abcd")
     //expect code to validate popup msg;Code to handle alert before action
     expect(await contact.clickSendMsgBtnAndReturnMsg()).toEqual('Thanks for the message!!')
